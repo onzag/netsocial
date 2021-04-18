@@ -1,0 +1,26 @@
+{
+    "type": "item",
+    "properties": [
+        {
+            "id": "target",
+            "type": "string",
+            "subtype": "reference",
+            "specialProperties": {
+                "referencedModule": "users",
+                "referencedItemDefinition": "user",
+                "referencedSearchProperty": "username",
+                "referencedDisplayProperty": "username"
+            }
+        },
+        {
+            "id": "strength",
+            "type": "number",
+            "min": 0,
+            "max": 1
+        }
+    ],
+    "createRoleAccess": [],
+    "editRoleAccess": [],
+    "deleteRoleAccess": [],
+    "readRoleAccess": ["USER", "ADMIN"]
+}

@@ -1,0 +1,48 @@
+{
+  "entry": "schema/root",
+  "appName": "netsocial",
+  "supportedLanguages": [
+    "en",
+    "fi",
+    "es",
+    "nl",
+    "sv"
+  ],
+  "rtlLanguages": [],
+  "dictionaries": {
+    "en": "english",
+    "fi": "finnish",
+    "es": "spanish",
+    "nl": "dutch",
+    "sv": "swedish"
+  },
+  "roles": [
+    "ADMIN",
+    "USER"
+  ],
+  "fontUrl": "https://fonts.googleapis.com/css?family=Open+Sans:300,400,500&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese",
+  "fontName": "Open Sans",
+  "cacheableExtHostnames": [
+    "fonts.googleapis.com",
+    "fonts.gstatic.com"
+  ],
+  "manifest": {
+    "backgroundColor": "#FFFFFF",
+    "themeColor": "#000000",
+    "macSafariMaskIconThemeColor": "#000000",
+    "msTileColor": "#000000",
+    "orientation": "portrait",
+    "display": "standalone"
+  },
+  "fallbackLanguage": "en",
+  "fallbackCountryCode": "FI",
+  "fallbackCurrency": "EUR",
+  "developmentHostname": "dev.netsocial.com",
+  "productionHostname": "netsocial.com",
+  "containersRegionMappers": {
+    "*": "MAIN"
+  },
+  "containersHostnamePrefixes": {
+    "MAIN": "/uploads"
+  }
+}

@@ -1,0 +1,37 @@
+{
+    "type": "item",
+    "properties": [
+        {
+            "id": "url",
+            "type": "string",
+            "subtype": "exact-value"
+        },
+        {
+            "id": "title",
+            "type": "text"
+        },
+        {
+            "id": "description",
+            "type": "text",
+            "subtype": "plain"
+        },
+        {
+            "id": "containing_feeds",
+            "type": "taglist",
+            "subtype": "arbitrary-tags",
+            "nullable": true,
+            "hidden": true
+        },
+        {
+            "id": "feeds_authors",
+            "type": "taglist",
+            "subtype": "arbitrary-tags",
+            "nullable": true,
+            "hidden": true
+        }
+    ],
+    "createRoleAccess": [],
+    "editRoleAccess": [],
+    "deleteRoleAccess": [],
+    "readRoleAccess": ["USER", "ADMIN"]
+}

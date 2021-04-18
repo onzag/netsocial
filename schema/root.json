@@ -1,0 +1,9 @@
+{
+  "type": "root",
+  "children": [
+    "users",
+    "cms",
+    "datagraph"
+  ],
+  "i18n": "main-i18n.properties"
+}

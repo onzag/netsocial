@@ -1,0 +1,48 @@
+{
+    "type": "item",
+    "properties": [
+        {
+            "id": "content",
+            "type": "text",
+            "subtype": "plain",
+            "searchable": true
+        },
+        {
+            "id": "content_html",
+            "type": "text",
+            "subtype": "plain",
+            "searchable": false,
+            "nullable": true
+        },
+        {
+            "id": "extracted_articles_ids",
+            "type": "taglist",
+            "subtype": "arbitrary-tags",
+            "nullable": true,
+            "hidden": true
+        },
+        {
+            "id": "extracted_articles_urls",
+            "type": "taglist",
+            "subtype": "arbitrary-tags",
+            "nullable": true,
+            "hidden": true
+        },
+        {
+            "id": "source",
+            "type": "string",
+            "values": ["facebook", "instagram", "pinterest", "reddit", "snapchat", "twitter", "rss"]
+        },
+        {
+            "id": "source_url",
+            "type": "string",
+            "subtype": "exact-value",
+            "nullable": true,
+            "searchable": false
+        }
+    ],
+    "createRoleAccess": [],
+    "editRoleAccess": [],
+    "deleteRoleAccess": [],
+    "readRoleAccess": ["USER", "ADMIN"]
+}

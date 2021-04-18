@@ -1,0 +1,5 @@
+{
+    "type": "module",
+    "children": ["feed", "article", "connection"],
+    "searchable": false
+}
