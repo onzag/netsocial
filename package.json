@@ -26,6 +26,7 @@
   "author": "Edward González <ejgonzalezviera@gmail.com> (http://onzasystems.com)",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/icons": "^4.11.2",
     "@onzag/itemize": "0.0.152",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",

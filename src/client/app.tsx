@@ -24,6 +24,10 @@ import { LoginDialog } from "./components/login-dialog";
 import { SignupDialog } from "./components/signup-dialog";
 import { RecoverDialog } from "./components/recover-dialog";
 
+import AccountTreeIcon from "@material-ui/icons/AccountTree";
+import AnnouncementIcon from "@material-ui/icons/Announcement";
+import { UserData } from "./pages/userdata";
+
 // Remember that when adding fast prototyping components they might demand
 // localization data, if you get an error named
 // Uncaught Error: Unknown key in context: xxxxxxx from localization.tsx
@@ -63,6 +67,27 @@ export const MENU_ENTRIES: IMenuEntry[] = [
       id: "home",
       capitalize: true,
     },
+  },
+  {
+    path: "/userdata",
+    icon: <AccountTreeIcon />,
+    i18nProps: {
+      id: "userdata",
+      capitalize: true,
+    },
+    module: "users",
+    idef: "user",
+    roles: ["USER", "ADMIN"],
+  },
+  {
+    path: "/datagraph",
+    icon: <AnnouncementIcon />,
+    i18nProps: {
+      id: "recommends",
+      capitalize: true,
+    },
+    module: "datagraph",
+    roles: ["USER", "ADMIN"],
   },
   {
     path: "/news",
@@ -119,6 +144,8 @@ export default function App() {
       <Route path="/privacy-policy" component={PrivacyPolicy}/>
       <Route path="/terms-and-conditions" component={TermsAndConditions}/>
       <Route path="/contact" component={Contact}/>
+
+      <Route path="/userdata" exact={true} component={UserData}/>
 
       <Footer/>
     </>
