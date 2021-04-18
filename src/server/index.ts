@@ -1,13 +1,15 @@
 import { initializeServer } from "@onzag/itemize/server";
-import { capitalize, localeReplacer } from "@onzag/itemize/util";
 
 // Check the client for info on these, we are replicating what is used in the client somewhat
 import React from "react";
 import App from "../client/app";
 import { rendererContext } from "@onzag/itemize/client/fast-prototyping/renderers";
-import { appWrapper, mainWrapper } from "@onzag/itemize/client/fast-prototyping/wrappers";
+import {
+  appWrapper,
+  mainWrapper,
+} from "@onzag/itemize/client/fast-prototyping/wrappers";
 import { styleCollector } from "@onzag/itemize/client/fast-prototyping/collectors";
-import { fileURLAbsoluter } from "@onzag/itemize/util";
+import { IOTriggerActions } from "@onzag/itemize/server/resolvers/triggers";
 
 // Itemize server isn't hot, it won't refresh in realtime and it
 // isn't recommended to attempt to set it up that way
@@ -34,6 +36,15 @@ import { fileURLAbsoluter } from "@onzag/itemize/util";
 // it will mark the app as outdated and you can have custom logic for outdated apps
 // outdated apps only exists for that session
 
+const elements = [
+  "facebook",
+  "twitter",
+  "reddit",
+  "pinterest",
+  "instagram",
+  "website_rss",
+];
+
 initializeServer(
   {
     // These are the same as of the client side
@@ -57,6 +68,37 @@ initializeServer(
             item: "user",
           },
         ],
+      },
+    },
+  },
+  {
+    customTriggers: {
+      item: {
+        io: {
+          "users/user": (arg) => {
+            if (arg.action === IOTriggerActions.EDITED) {
+              elements.forEach((element) => {
+                const elementId = element + "_id";
+                const updatedElementId =
+                  arg.originalValue[elementId] !== arg.newValue[elementId] &&
+                  arg.newValue[elementId];
+
+                if (updatedElementId) {
+                  arg.appData.redisPub.redisClient.publish(
+                    "UPDATE_ELEMENT",
+                    JSON.stringify({
+                      userId: arg.id,
+                      element,
+                      value: arg.newValue[elementId],
+                    }),
+                  );
+                }
+              });
+            }
+
+            return null;
+          },
+        },
       },
     },
   },

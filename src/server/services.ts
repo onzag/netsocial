@@ -1,4 +1,5 @@
 import { IServiceCustomizationType } from "@onzag/itemize/server";
+import { FeedRetriever } from "./service/feed-retriever";
 
 // within this file you can change your service providers
 // this file is dinamically imported by the server and other
@@ -9,7 +10,9 @@ import { IServiceCustomizationType } from "@onzag/itemize/server";
 // this file enables to specify custom services eg. for email sending
 // storage, and others, if left emtpy it will use the itemize defaults
 const services: IServiceCustomizationType = {
-
+  customServices: {
+    feedRetriever: FeedRetriever,
+  },
 };
 
 // this export being the default is important
