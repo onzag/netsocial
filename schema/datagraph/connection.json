@@ -13,6 +13,13 @@
             }
         },
         {
+            "id": "articles_in_common",
+            "type": "taglist",
+            "subtype": "arbitrary-tags",
+            "nullable": true,
+            "hidden": true
+        },
+        {
             "id": "strength",
             "type": "number",
             "min": 0,
